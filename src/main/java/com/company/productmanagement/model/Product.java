@@ -16,5 +16,8 @@ public class Product {
     private Long id;
     private String name;
     private double price;
-
+    private String description;
+    @Lob
+    @Column(columnDefinition = "MEDIUMLOB")
+    private String image;
 }
