@@ -3,18 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+
 </head>
 <body>
 
-<div class="test">
+<div class="container">
 
-    <!--/*@thymesVar id="product" type="com.company.productmanagement.model.Product"*/-->
-    <h1 th:text="${product.id}"></h1>
-    <h1 th:text="${product.name}"></h1>
-    <h1 th:text="${product.price}"></h1>
+    <div class="header">
+
+        <div class="navbar">
+            <div class="logo">
+                <a th:href="@{/index}">Product Management</a>
+            </div>
+
+            <ul>
+                <li><a th:href="@{/index}" class="active">Home</a></li>
+                <li><a th:href="@{/list}">Products</a></li>
+                <li><a th:href="@{/form}">Add Product</a></li>
+                <li><a th:href="@{/list2}">Sign Up</a></li>
+                <li><a th:href="@{/home}">Login</a></li>
+            </ul>
+        </div>
+
+    </div>
 
 
+
+
+</div>
+
+<div class="footer">
+    <p>Product Management</p> <br>
 </div>
 
 </body>
