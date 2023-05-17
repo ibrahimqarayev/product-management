@@ -1,26 +1,52 @@
 package com.company.productmanagement.controller;
 
+import com.company.productmanagement.dto.ProductDto;
 import com.company.productmanagement.model.Product;
 import com.company.productmanagement.repository.ProductRepository;
+import com.company.productmanagement.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
 public class ProductController {
-    private final ProductRepository productRepository;
+    private final ProductService productService;
 
-    @GetMapping("/example")
-    public String example(Model model) {
-        Product product = new Product();
-        product.setId(1L);
-        product.setName("PC");
-        product.setPrice(99.9);
-
-        model.addAttribute("product", product);
+    @GetMapping({"/home", "/index"})
+    public String home() {
         return "index";
+    }
+
+    @GetMapping("/list")
+    public String getProducts(Model model) {
+        List<ProductDto> products = productService.getProducts();
+        model.addAttribute("products", products);
+        return "product-list";
+    }
+
+    @GetMapping("/form")
+    public String from() {
+        return "add-product";
+    }
+
+    @PostMapping("/add")
+    public String addProduct(
+            @RequestParam("name") String name,
+            @RequestParam("price") Double price,
+            @RequestParam("description") String description) {
+        ProductDto newProduct = productService.addProduct(name, price, description);
+
+        return "redirect:/list";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Long id) {
+        productService.deleteById(id);
+        return "redirect:/list";
     }
 
 }
