@@ -4,23 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcc7f1d8-2421-4e1a-b927-7356b7e64d52" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/company/productmanagement/dto/ProductDto.java" afterDir="false" />
+    <list default="true" id="dcc7f1d8-2421-4e1a-b927-7356b7e64d52" name="Changes" comment="initial commit">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/company/productmanagement/service/ProductService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/templates/add-product.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/templates/product-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/company/productmanagement/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/productmanagement/controller/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/company/productmanagement/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/productmanagement/model/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/productmanagement/ProductManagementApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/productmanagement/controller/ProductController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/productmanagement/model/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/productmanagement/repository/ProductRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,11 +71,42 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684242817530</updated>
-      <workItem from="1684242819528" duration="108000" />
+      <workItem from="1684242819528" duration="265000" />
     </task>
+    <task id="LOCAL-00001" summary="Add ProductDto">
+      <created>1684243015735</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684243015735</updated>
+    </task>
+    <task id="LOCAL-00002" summary="initial commit">
+      <created>1684243066293</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684243066293</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add ProductDto" />
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
 </project>
