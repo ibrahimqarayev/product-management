@@ -9,7 +9,7 @@
 <body>
 
 <div class="col-md-6">
-    <form th:action="@{/add}" method="post">
+    <form th:action="@{/add}" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="name">Product name</label>
             <input type="text" id="name" name="name" class="form-control">
@@ -21,10 +21,10 @@
             <input type="text" id="description" name="description" class="form-control">
             <br>
             <div class="custom-file">
-            <input type="file" class="custom-file-input" id="custom-file">
-            <label class="custom-file-label" for="custom-file"/>
+                <label for="file"></label>
+                <input type="file" name="file" class="custom-file-input" id="file">
             </div>
-            <br>
+            <br><br>
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
