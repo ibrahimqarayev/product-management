@@ -18,6 +18,6 @@ public class Product {
     private double price;
     private String description;
     @Lob
-    @Column(columnDefinition = "MEDIUMLOB")
+    @Column(columnDefinition = "MEDIUMBLOB")
     private String image;
 }
