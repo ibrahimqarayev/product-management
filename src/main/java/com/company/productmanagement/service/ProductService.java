@@ -5,7 +5,11 @@ import com.company.productmanagement.model.Product;
 import com.company.productmanagement.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.util.Base64;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,19 +29,34 @@ public class ProductService {
 
     }
 
-    public ProductDto addProduct(String name, Double price, String description) {
+    public ProductDto addProduct(MultipartFile file, String name, Double price, String description) {
+
+        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        if (fileName.contains("..")) {
+            System.out.println("Not a valid file");
+        }
+
         Product product = new Product();
         product.setName(name);
         product.setPrice(price);
         product.setDescription(description);
-        Product saveD = productRepository.save(product);
+
+        try {
+            product.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Product savedProduct = productRepository.save(product);
         return ProductDto.builder()
-                .id(saveD.getId())
-                .name(saveD.getName())
-                .price(saveD.getPrice())
-                .description(saveD.getDescription())
+                .id(savedProduct.getId())
+                .name(savedProduct.getName())
+                .price(savedProduct.getPrice())
+                .description(savedProduct.getDescription())
+                .image(savedProduct.getImage())
                 .build();
     }
+
 
     public void deleteById(Long id) {
         productRepository.deleteById(id);
