@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -35,10 +36,11 @@ public class ProductController {
 
     @PostMapping("/add")
     public String addProduct(
+            @RequestParam("file") MultipartFile file,
             @RequestParam("name") String name,
             @RequestParam("price") Double price,
             @RequestParam("description") String description) {
-        ProductDto newProduct = productService.addProduct(name, price, description);
+        productService.addProduct(file, name, price, description);
 
         return "redirect:/list";
     }
