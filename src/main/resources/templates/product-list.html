@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Product List</title>
@@ -27,14 +27,10 @@
             </thead>
             <tbody>
 
-            <!--/*@thymesVar id="products" type="com.company.productmanagement.model.Product"*/-->
             <tr th:each="product:${products}">
-                <!--/*@thymesVar id="product" type="com.company.productmanagement.model.Product"*/-->
                 <td th:text="${product.id}"></td>
                 <td>
-                    <img th:src="@{'data:image/jpeg;base64,' + {product.image}}" style="width:100px; height:100px;">
-<!--                    <img th:src="@{'data:image/jpeg;base64,' + ${#strings.replace(product.image, '\n', '')}}" alt="Product Image" style="width:100px; height:100px;">-->
-
+                    <img th:src="@{'data:image/jpeg;base64,' + ${product.image}}" style="width:100px; height:100px;">
                 </td>
                 <td th:text="${product.name}"></td>
                 <td th:text="${product.price}"></td>
@@ -44,8 +40,6 @@
 
             </tbody>
         </table>
-
-
     </div>
 
 </div>
