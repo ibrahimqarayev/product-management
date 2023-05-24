@@ -1,6 +1,7 @@
 package com.company.productmanagement.service;
 
 import com.company.productmanagement.dto.ProductDto;
+import com.company.productmanagement.exception.NotFoundException;
 import com.company.productmanagement.model.Product;
 import com.company.productmanagement.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -57,6 +58,34 @@ public class ProductService {
                 .description(savedProduct.getDescription())
                 .image(savedProduct.getImage())
                 .build();
+    }
+
+    public ProductDto updateProduct(Long id, MultipartFile file, String name, Double price, String description) {
+
+        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        if (fileName.contains("..")) {
+            System.out.println("Not a valid file");
+        }
+
+        Product product = productRepository.findById(id).orElseThrow(()->new NotFoundException("Product not found"));
+        try {
+            product.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        product.setName(name);
+        product.setPrice(price);
+        product.setDescription(description);
+
+        return ProductDto.builder()
+                .id(product.getId())
+                .name(product.getName())
+                .price(product.getPrice())
+                .description(product.getDescription())
+                .image(product.getImage())
+                .build();
+
     }
 
 
